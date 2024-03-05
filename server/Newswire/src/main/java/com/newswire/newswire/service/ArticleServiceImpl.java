@@ -15,10 +15,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void create(Article article) {
+    public Article create(Article article) {
         try {
             validateArticle(article);
-            articleRepository.save(article);
+            return articleRepository.save(article);
         } catch (IllegalArgumentException exception) {
             throw new InvalidArticleException(exception.getMessage());
         }
