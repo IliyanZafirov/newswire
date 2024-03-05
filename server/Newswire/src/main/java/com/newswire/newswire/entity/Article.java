@@ -22,10 +22,30 @@ public class Article {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    @NonNull
     private String imageURL;
+
+    @NonNull
     private LocalDateTime publicationDate;
 
+    public Article(Long id, String title, String content, Category category, String imageURL, LocalDateTime publicationDate) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.imageURL = imageURL;
+        this.publicationDate = publicationDate;
+    }
+
     public Article() {}
+
+    public LocalDateTime getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(LocalDateTime publicationDate) {
+        this.publicationDate = publicationDate;
+    }
 
     public Long getId() {
         return id;
