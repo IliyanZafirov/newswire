@@ -3,6 +3,7 @@ package com.newswire.newswire.entity;
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,9 +27,9 @@ public class Article {
     private String imageURL;
 
     @NonNull
-    private LocalDateTime publicationDate;
+    private LocalDate publicationDate;
 
-    public Article(Long id, String title, String content, Category category, String imageURL, LocalDateTime publicationDate) {
+    public Article(Long id, String title, String content, Category category, String imageURL, LocalDate publicationDate) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -39,11 +40,11 @@ public class Article {
 
     public Article() {}
 
-    public LocalDateTime getPublicationDate() {
+    public LocalDate getPublicationDate() {
         return publicationDate;
     }
 
-    public void setPublicationDate(LocalDateTime publicationDate) {
+    public void setPublicationDate(LocalDate publicationDate) {
         this.publicationDate = publicationDate;
     }
 
