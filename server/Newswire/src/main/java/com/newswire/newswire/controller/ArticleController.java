@@ -4,10 +4,7 @@ import com.newswire.newswire.entity.Article;
 import com.newswire.newswire.service.ArticleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.logging.Logger;
 
@@ -31,5 +28,16 @@ public class ArticleController {
             LOGGER.severe("Error occurred while creating article: " + e.getMessage());
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (articleService.existsById(id)) {
+            articleService.deleteById(id);
+            LOGGER.info("Article deleted successfully with ID: " + id);
+            return ResponseEntity.noContent().build();
+        }
+        LOGGER.severe("Article was not found");
+        return ResponseEntity.notFound().build();
     }
 }

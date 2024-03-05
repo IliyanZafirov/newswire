@@ -24,6 +24,17 @@ public class ArticleServiceImpl implements ArticleService {
         }
     }
 
+    @Override
+    public void deleteById(Long id) {
+        articleRepository.deleteById(id);
+    }
+
+
+    @Override
+    public boolean existsById(Long id) {
+        return articleRepository.existsById(id);
+    }
+
     private void validateArticle(Article article) {
         if (article == null) {
             throw new IllegalArgumentException("Article cannot be null");
