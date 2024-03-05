@@ -1,4 +1,4 @@
-package com.newswire.newswire;
+package com.newswire.newswire.entity;
 
 public enum Category {
     POLITICS,

@@ -1,7 +1,9 @@
-package com.newswire.newswire;
+package com.newswire.newswire.entity;
 
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class Article {
@@ -13,7 +15,6 @@ public class Article {
     @NonNull
     private String title;
 
-
     @Column(length = 3000)
     @NonNull
     private String content;
@@ -22,6 +23,7 @@ public class Article {
     private Category category;
 
     private String imageURL;
+    private LocalDateTime publicationDate;
 
     public Article() {}
 
