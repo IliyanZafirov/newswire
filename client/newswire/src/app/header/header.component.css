@@ -1,0 +1,20 @@
+.mat-toolbar {
+    background: black;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 0;
+    z-index: 1;
+}
+
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+

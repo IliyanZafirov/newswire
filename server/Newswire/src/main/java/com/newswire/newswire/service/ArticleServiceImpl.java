@@ -1,11 +1,14 @@
 package com.newswire.newswire.service;
 
 import com.newswire.newswire.entity.Article;
+import com.newswire.newswire.entity.Category;
 import com.newswire.newswire.exception.InvalidArticleException;
 import com.newswire.newswire.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -48,6 +51,13 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findById(id);
     }
 
+    @Override
+    public List<Article> findAllByCategory(Category category) {
+        if (category == null) {
+            throw new IllegalArgumentException("Category cannot be null");
+        }
+        return articleRepository.findAllByCategory(category);
+    }
 
     private void validateArticle(Article article) {
         if (article == null) {
