@@ -61,4 +61,16 @@ public class ArticleController {
         LOGGER.severe("Article was not found");
         return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> put(@PathVariable Long id, @RequestBody Article articleUpdate) {
+        Article article = articleService.findById(id).orElse(null);
+        if (article != null) {
+            Article updatedArticle = new Article(id, articleUpdate.getTitle(), articleUpdate.getContent(),
+                    articleUpdate.getCategory(), articleUpdate.getImageURL(), articleUpdate.getPublicationDate());
+            articleService.save(updatedArticle);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
