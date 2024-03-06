@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
@@ -16,6 +17,16 @@ public class ArticleController {
     private final ArticleService articleService;
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Article>> getAll() {
+        List<Article> articles = articleService.findAll();
+        if (!articles.isEmpty()) {
+            return ResponseEntity.ok(articles);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping

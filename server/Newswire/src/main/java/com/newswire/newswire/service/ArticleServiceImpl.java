@@ -5,6 +5,8 @@ import com.newswire.newswire.exception.InvalidArticleException;
 import com.newswire.newswire.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
@@ -33,6 +35,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public boolean existsById(Long id) {
         return articleRepository.existsById(id);
+    }
+
+    @Override
+    public List<Article> findAll() {
+        return articleRepository.findAll();
     }
 
     private void validateArticle(Article article) {
