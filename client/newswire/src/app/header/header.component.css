@@ -14,7 +14,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 
+.nav-section-links a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: white;
+}
 
