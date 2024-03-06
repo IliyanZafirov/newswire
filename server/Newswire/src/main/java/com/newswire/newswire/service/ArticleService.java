@@ -1,6 +1,7 @@
 package com.newswire.newswire.service;
 
 import com.newswire.newswire.entity.Article;
+import com.newswire.newswire.entity.Category;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,4 +12,5 @@ public interface ArticleService {
     boolean existsById(Long id);
     List<Article> findAll();
     Optional<Article> findById(Long id);
+    List<Article> findAllByCategory(Category category);
 }
