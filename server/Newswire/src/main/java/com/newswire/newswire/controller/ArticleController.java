@@ -5,7 +5,9 @@ import com.newswire.newswire.service.ArticleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -30,11 +32,12 @@ public class ArticleController {
     }
 
     @PostMapping
-    public ResponseEntity<Article> post(@RequestBody Article article) {
+    public ResponseEntity<Article> post(@RequestBody Article article, UriComponentsBuilder ucb) {
         try {
-            Article savedArticle = articleService.create(article);
+            Article savedArticle = articleService.save(article);
             LOGGER.info("Article created successfully with ID: " + savedArticle.getId());
-            return ResponseEntity.ok(savedArticle);
+            URI location = ucb.path("/api/v1/articles/{id}").buildAndExpand(savedArticle.getId()).toUri();
+            return ResponseEntity.created(location).body(savedArticle);
         } catch (Exception e) {
             LOGGER.severe("Error occurred while creating article: " + e.getMessage());
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
