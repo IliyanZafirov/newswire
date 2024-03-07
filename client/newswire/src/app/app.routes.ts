@@ -5,8 +5,7 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
 import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  { path: '', component: AppComponent, children: [
-      { path: 'articles', component: MainContainerComponent },
-      { path: 'articles/:id', component: ArticleDetailsComponent },
-  ]  },  
+  { path: '',   redirectTo: '/articles', pathMatch: 'full' },
+  { path: 'articles', component: MainContainerComponent },
+  { path: 'articles/:id', component: ArticleDetailsComponent },
 ];
