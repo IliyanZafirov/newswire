@@ -6,3 +6,20 @@
     justify-content: center;
     align-items: center;;
 }
+
+.left-side,
+.right-side {
+    height: 100%;
+    overflow: hidden;
+}
+
+.news-section {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0%;
+    align-items: center;
+    color: black;
+    gap: 20px;
+    flex-wrap: wrap;
+}

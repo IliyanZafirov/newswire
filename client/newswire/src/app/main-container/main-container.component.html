@@ -3,7 +3,15 @@
 
     </div>
     <div class="news-section" fxflex="60">
-
+        @for(article of articles; track article.id) {
+            <p>
+                {{article.id}}
+                {{article.title}}
+                {{article.content}}
+                {{article.category}}
+                {{article.publicationDate}} 
+            </p>
+        } 
     </div>
     <div class="right-side" fxflex="20">
 
