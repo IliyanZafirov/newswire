@@ -13,14 +13,13 @@
     overflow: hidden;
 }
 
-.news-section::before,
-.news-section::after {
+.news-section {
     height: 100%;
     display: flex;
     justify-content: center;
     margin-top: 0%;
+    align-items: center;
     color: black;
     gap: 20px;
     flex-wrap: wrap;
 }
-
