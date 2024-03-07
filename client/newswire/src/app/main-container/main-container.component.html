@@ -4,13 +4,7 @@
     </div>
     <div class="news-section" fxflex="60">
         @for(article of articles; track article.id) {
-            <p>
-                {{article.id}}
-                {{article.title}}
-                {{article.content}}
-                {{article.category}}
-                {{article.publicationDate}} 
-            </p>
+            <app-article-card [article]="article"></app-article-card>
         } 
     </div>
     <div class="right-side" fxflex="20">

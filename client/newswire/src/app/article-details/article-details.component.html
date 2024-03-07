@@ -4,12 +4,13 @@
     </div>
     <div class="news-section" fxflex="60">
         @if(article) {
+            <img src={{article.imageURL}}>
             <p>
                 {{article.id}}
                 {{article.title}}
                 {{article.content}}
                 {{article.category}}
-                {{article.publicationDate}} 
+                {{article.publicationDate}}
             </p>
         } 
     </div>
