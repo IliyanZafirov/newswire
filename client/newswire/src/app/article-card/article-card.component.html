@@ -1,20 +1,18 @@
 @if (article) {
-    <mat-card class="article-card">
-        <mat-card-header>
-        <mat-card-title>
-            <a [routerLink]="'/articles/' + article.id"> 
-                {{ article.title }}
-            </a>
-        </mat-card-title>
-        </mat-card-header>
-        <a [routerLink]="'articles/' + article.id"> 
-            <img mat-card-image ngSrc="{{ article.imageURL }}" height="500" width="500"/>
-        </a>
-        <mat-card-content>
-        <p>
-            {{article.content}}<br>
-            {{article.publicationDate}}
-        </p>
-        </mat-card-content>
-    </mat-card>
+    <a [routerLink]="'/articles/' + article.id" class="article-link">
+        <mat-card class="article-card">
+            <mat-card-header>
+                <mat-card-title>
+                    {{ article.title }}
+                </mat-card-title>
+            </mat-card-header>
+            <img mat-card-image ngSrc="{{ article.imageURL }}" height="300" width="400"/>
+            <mat-card-content>
+                <p>
+                    {{ article.category }}<br>
+                    {{ article.publicationDate }}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </a>
 }
