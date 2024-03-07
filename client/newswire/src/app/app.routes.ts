@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { HeaderComponent } from './header/header.component';
+import { MainContainerComponent } from './main-container/main-container.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/articles', pathMatch: 'full' }, 
-  { path: 'articles', component: HeaderComponent }, 
+  { path: 'articles', component: MainContainerComponent }, 
 ];
