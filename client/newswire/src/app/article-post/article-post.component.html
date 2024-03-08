@@ -1,0 +1,26 @@
+
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="test-form">
+    <button>
+        <a href="http://localhost:4200/">Home</a>
+    </button>
+    <label>Title
+      <input type="text" formControlName="title"/>
+    </label>
+    <label>Content
+      <input type="text" formControlName="content" class="content"/>
+    </label>
+    <label>Publication Date
+        <input type="date" formControlName="publicationDate"/>
+    </label>
+    <label> Category
+        <select formControlName="category">
+            <option value="POLITICS">Politics</option>
+            <option value="SPORTS">Sports</option>
+            <option value="FINANCE">Finance</option>
+        </select>
+    </label>
+    <label> Image URL
+        <input type="text" formControlName="imageURL">
+    </label>
+    <button type="submit">Submit</button>
+  </form>
