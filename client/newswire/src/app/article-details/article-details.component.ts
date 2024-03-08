@@ -31,13 +31,13 @@ export class ArticleDetailsComponent {
   }
 
   deleteArticle(): void {
-    this.articleService.delete(this.route.snapshot.params['id']).subscribe(
-      () => {
+    this.articleService.delete(this.route.snapshot.params['id']).subscribe({
+      next: () => {
         this.router.navigate(["/"]);
       },
-      (error) => {
+      error: (error) => {
         console.error(error);
       }
-    );
-  }  
+    });
+  } 
 }
