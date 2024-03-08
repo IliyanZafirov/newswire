@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Article } from '../model/article.model';
 import { ArticleService } from '../article-service/article.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -14,9 +14,8 @@ import { NgOptimizedImage } from '@angular/common';
 
 export class ArticleDetailsComponent {
   article: Article=<Article>{};
-  route: ActivatedRoute = inject(ActivatedRoute);
   
-  constructor(private articleService: ArticleService) {
+  constructor(private articleService: ArticleService, private route: ActivatedRoute, private router: Router) {
     this.article = this.getArticle(this.route.snapshot.params['id']);
   }
 
@@ -30,4 +29,15 @@ export class ArticleDetailsComponent {
         error: (e) => console.error(e)
       });
   }
+
+  deleteArticle(): void {
+    this.articleService.delete(this.route.snapshot.params['id']).subscribe(
+      () => {
+        this.router.navigate(["/"]);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }  
 }
