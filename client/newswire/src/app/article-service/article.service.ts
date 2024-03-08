@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Article } from '../model/article.model';
 
 const baseUrl = 'http://localhost:8080/api/v1/articles';
@@ -17,5 +17,9 @@ export class ArticleService {
 
   get(id: number): Observable<Article> {
     return this.http.get<Article>(`${baseUrl}/${id}`);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${baseUrl}/${id}`);
   }
 }

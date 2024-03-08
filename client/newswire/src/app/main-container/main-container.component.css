@@ -1,26 +1,26 @@
 .main-section {
-    height: 100vh;
-    margin-top:70px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 20px;
+    background-color: black;
 }
 
 .left-side,
 .right-side {
-    height: 100%;
-    overflow: hidden;
+    width: 20%; 
+    height:100vh;
 }
 
-.news-section::before,
-.news-section::after {
-    height: 100%;
+.news-section {
+    width: 60%;
     display: flex;
-    justify-content: center;
-    margin-top: 0%;
-    color: black;
-    gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top:70px;
+    background-color: black;
 }
+
 
