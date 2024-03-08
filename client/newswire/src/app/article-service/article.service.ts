@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { Article } from '../model/article.model';
+import { Article} from '../model/article.model';
 
 const baseUrl = 'http://localhost:8080/api/v1/articles';
 @Injectable({
@@ -21,5 +21,9 @@ export class ArticleService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${baseUrl}/${id}`);
+  }
+
+  post(article: Article): Observable<Article> {
+    return this.http.post<Article>(`${baseUrl}`, article);
   }
 }
