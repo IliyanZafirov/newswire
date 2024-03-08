@@ -1,20 +1,19 @@
 <div class="main-section">
-    <div class="left-side" fxflex="20">
-
-    </div>
+    <div class="left-side" fxflex="20"></div>
     <div class="news-section" fxflex="60">
         @if(article) {
-            <img src={{article.imageURL}}>
-            <p>
-                {{article.id}}
-                {{article.title}}
-                {{article.content}}
-                {{article.category}}
-                {{article.publicationDate}}
-            </p>
+            <section class="title">
+                <h1>{{article.title}}</h1>
+            </section>
+            <section class="info">
+                <p>Publication Date: {{article.publicationDate}}</p>
+                <p>Category: {{article.category}}</p>
+            </section>
+            <section class="article-content">
+                <img ngSrc={{article.imageURL}}  height="500" width="500">
+                <p>{{article.content}}</p>
+            </section>
         } 
     </div>
-    <div class="right-side" fxflex="20">
-
-    </div>
+    <div class="right-side" fxflex="20"></div>
 </div>

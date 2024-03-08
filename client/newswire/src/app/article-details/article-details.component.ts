@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Article } from '../model/article.model';
 import { ArticleService } from '../article-service/article.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-article-details',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './article-details.component.html',
   styleUrl: './article-details.component.css'
 })
