@@ -5,6 +5,7 @@
     <div class="left-side" fxflex="20">
     </div>
     <div class="news-section" fxflex="60">
+        <div class="create-new-article"></div>
         @for(article of articles; track article.id) {
             <app-article-card [article]="article"></app-article-card>
         } 

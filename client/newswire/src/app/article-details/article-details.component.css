@@ -1,34 +1,75 @@
 .main-section {
-    height: auto;
     display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 0 20px;
+    justify-content: space-between;
+    padding: 70px;
 }
 
 .left-side,
 .right-side {
-    width: 20%; 
-    background-color: black;
+    flex: 1;
 }
 
 .news-section {
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top:70px;
+    flex: 4;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
 
-.info {
+.article-form {
     margin-bottom: 20px;
 }
 
-.article-content {
-    display: flex;
-    justify-content: space-between;
-    gap:20px;
+.article-form label {
+    display: block;
+    margin-bottom: 10px;
 }
+
+.article-form input[type="text"],
+.article-form input[type="date"],
+.article-form select,
+.article-form textarea {
+    width: 100%;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.content {
+    height: 200px;
+}
+
+.article-content {
+    margin-bottom: 20px;
+}
+
+.imageURL {
+    margin-bottom: 10px;
+}
+
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+button[type="submit"],
+button[type="button"],
+.update-button,
+.delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #45a049;
+}
+
