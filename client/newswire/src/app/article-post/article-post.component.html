@@ -1,27 +1,40 @@
-<form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="create-article-form">
-    <button>
-        <a href="http://localhost:4200/">Home</a>
-    </button>
-    <label>Title
-      <input type="text" formControlName="title"/>
-    </label>
-    <label>Content
-      <textarea type="text" formControlName="content" class="content">
+<div class="main-section">
+    <div class="left-side" fxflex="20"></div>
+    <div>
+        <button>
+            <a href="http://localhost:4200/">Home</a>
+        </button>
+    </div>
+    <div class="news-section" fxflex="60">
+        @if(article) {
+            <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
+                <label> Title:
+                    <input type="text" formControlName="title" id="title" class="title"/>
+                </label>
+                <label> Publication Date:
+                    <input type="date" formControlName="publicationDate" id="date" class="date"/>
+                </label>
+                <label> Category:
+                    <select formControlName="category" id="category" class="category">
+                        <option value="POLITICS">Politics</option>
+                        <option value="SPORTS">Sports</option>
+                        <option value="FINANCE">Finance</option>
+                    </select>
+                </label>
+                <section class="article-content">
+                    Image URL:
+                    <input formControlName="imageURL" id="imageURL" class="imageURL" height="30px" width="30px">
+                    @if (articleForm.get('imageURL')?.value) {
+                        <div>
+                            <img [src]="articleForm.get('imageURL')?.value" height="600px" width="600px"/>
+                        </div>
+                    }
+                    <textarea formControlName="content" id="content" class="content"></textarea>
+                </section>
+                <button type="submit">Update</button>
+            </form>
+        } 
+    </div>
+    <div class="right-side" fxflex="20"></div>
+</div>    
 
-      </textarea>
-    </label>
-    <label>Publication Date
-        <input type="date" formControlName="publicationDate"/>
-    </label>
-    <label> Category
-        <select formControlName="category">
-            <option value="POLITICS">Politics</option>
-            <option value="SPORTS">Sports</option>
-            <option value="FINANCE">Finance</option>
-        </select>
-    </label>
-    <label> Image URL
-        <input type="text" formControlName="imageURL">
-    </label>
-    <button type="submit">Submit</button>
-</form>

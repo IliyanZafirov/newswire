@@ -46,7 +46,13 @@
 }
 
 .imageURL {
-    margin-bottom: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+.category {
+    height: 100px;
+    width: 200px;
 }
 
 .article-content img {
