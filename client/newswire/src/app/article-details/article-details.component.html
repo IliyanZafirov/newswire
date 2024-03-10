@@ -1,23 +1,40 @@
 <div class="main-section">
     <div class="left-side" fxflex="20"></div>
+    <div>
+        <button>
+            <a href="http://localhost:4200/">Home</a>
+        </button>
+    </div>
     <div class="news-section" fxflex="60">
         @if(article) {
-            <button>
-                <a href="http://localhost:4200/">Home</a>
-            </button>
-            <section class="title">
-                <h1>{{article.title}}</h1>
-            </section>
-            <section class="info">
-                <p>Publication Date: {{article.publicationDate}}</p>
-                <p>Category: {{article.category}}</p>
-            </section>
-            <section class="article-content">
-                <img ngSrc={{article.imageURL}}  height="500" width="500">
-                <p>{{article.content}}</p>
-            </section>
-            <button (click)="deleteArticle()">Delete Article</button>
+            <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
+                <label> Title:
+                    <input type="text" formControlName="title" id="title" class="title"/>
+                </label>
+                <label> Publication Date:
+                    <input type="date" formControlName="publicationDate" id="date" class="date"/>
+                </label>
+                <label> Category:
+                    <select formControlName="category">
+                        <option value="POLITICS">Politics</option>
+                        <option value="SPORTS">Sports</option>
+                        <option value="FINANCE">Finance</option>
+                    </select>
+                </label>
+                <section class="article-content">
+                    <input formControlName="imageURL" id="imageURL" class="imageURL" height="30px" width="30px">
+                    @if (articleForm.get('imageURL')?.value) {
+                        <div>
+                            <img [src]="articleForm.get('imageURL')?.value" height="600px" width="600px"/>
+                        </div>
+                    }
+                    <textarea formControlName="content" id="content" class="content"></textarea>
+                </section>
+                <button type="submit">Update</button>
+                <button (click)="deleteArticle()" class="delete-button">Delete</button>
+            </form>
         } 
     </div>
     <div class="right-side" fxflex="20"></div>
-</div>
+</div>    
+
