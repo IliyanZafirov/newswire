@@ -23,15 +23,10 @@
                 </label>
                 <section class="article-content">
                     Image URL:
-                    <input formControlName="imageURL" id="imageURL" class="imageURL" height="30px" width="30px">
-                    @if (articleForm.get('imageURL')?.value) {
-                        <div>
-                            <img [src]="articleForm.get('imageURL')?.value" height="600px" width="600px"/>
-                        </div>
-                    }
+                    <input formControlName="imageURL" id="imageURL" class="imageURL">
                     <textarea formControlName="content" id="content" class="content"></textarea>
                 </section>
-                <button type="submit">Update</button>
+                <button type="submit">Create</button>
             </form>
         } 
     </div>
