@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/articles")
 public class ArticleController {
 
