@@ -22,7 +22,7 @@ public class Article {
 
     @Enumerated(EnumType.STRING)
     private Category category;
-
+    
     @NonNull
     private String imageURL;
 
