@@ -49,10 +49,10 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findById(id);
     }
 
-//    @Override
-//    public Optional<List<Article>> findByCategory(Category category) {
-//        return articleRepository.findByCategory(category);
-//    }
+    @Override
+    public Optional<List<Article>> findByCategory(Category category) {
+        return articleRepository.findByCategory(category);
+    }
 
 
     private void validateArticle(Article article) {

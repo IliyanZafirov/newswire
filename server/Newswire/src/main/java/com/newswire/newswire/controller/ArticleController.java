@@ -40,11 +40,11 @@ public class ArticleController {
         return article.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-//    @GetMapping("/category/{category}")
-//    public ResponseEntity<List<Article>> getByCategory(@PathVariable Category category) {
-//        Optional<List<Article>> articles = articleService.findByCategory(category);
-//        return articles.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-//    }
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Article>> getByCategory(@PathVariable Category category) {
+        Optional<List<Article>> articles = articleService.findByCategory(category);
+        return articles.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @PostMapping
     public ResponseEntity<Article> post(@RequestBody Article article, UriComponentsBuilder ucb) {
