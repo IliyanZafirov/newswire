@@ -52,12 +52,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> findAllByCategory(Category category) {
-        if (category == null) {
-            throw new IllegalArgumentException("Category cannot be null");
-        }
-        return articleRepository.findAllByCategory(category);
+    public Optional<List<Article>> findByCategory(Category category) {
+        return articleRepository.findByCategory(category);
     }
+
+
 
     private void validateArticle(Article article) {
         if (article == null) {

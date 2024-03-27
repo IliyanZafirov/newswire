@@ -12,5 +12,5 @@ public interface ArticleService {
     boolean existsById(Long id);
     List<Article> findAll();
     Optional<Article> findById(Long id);
-    List<Article> findAllByCategory(Category category);
+    Optional<List<Article>> findByCategory(Category category);
 }
