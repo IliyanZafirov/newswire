@@ -6,7 +6,9 @@ import com.newswire.newswire.exception.InvalidArticleException;
 import com.newswire.newswire.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -33,7 +35,6 @@ public class ArticleServiceImpl implements ArticleService {
         articleRepository.deleteById(id);
     }
 
-
     @Override
     public boolean existsById(Long id) {
         return articleRepository.existsById(id);
@@ -53,7 +54,6 @@ public class ArticleServiceImpl implements ArticleService {
     public Optional<List<Article>> findByCategory(Category category) {
         return articleRepository.findByCategory(category);
     }
-
 
     private void validateArticle(Article article) {
         if (article == null) {

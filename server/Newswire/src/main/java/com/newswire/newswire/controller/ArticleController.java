@@ -28,8 +28,10 @@ public class ArticleController {
     public ResponseEntity<List<Article>> getAll() {
         List<Article> articles = articleService.findAll();
         if (!articles.isEmpty()) {
+            LOGGER.info("Returned all articles");
             return ResponseEntity.ok(articles);
         } else {
+            LOGGER.severe("No articles found");
             return ResponseEntity.notFound().build();
         }
     }
@@ -37,7 +39,13 @@ public class ArticleController {
     @GetMapping("/{id}")
     public ResponseEntity<Article> getById(@PathVariable Long id) {
         Optional<Article> article = articleService.findById(id);
-        return article.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        if (article.isPresent()) {
+            LOGGER.info("Article was found with ID: " + id);
+            return ResponseEntity.ok(article.get());
+        } else {
+            LOGGER.info("Article was not found with ID: " + id);
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/category/{category}")
@@ -77,8 +85,10 @@ public class ArticleController {
             Article updatedArticle = new Article(id, articleUpdate.getTitle(), articleUpdate.getContent(),
                     articleUpdate.getCategory(), articleUpdate.getImageURL(), articleUpdate.getPublicationDate());
             articleService.save(updatedArticle);
+            LOGGER.info("Article updated successfully with ID: " + id);
             return ResponseEntity.noContent().build();
         }
+        LOGGER.severe("Article was not found with ID: " + id);
         return ResponseEntity.notFound().build();
     }
 }
