@@ -1,6 +1,7 @@
 package com.newswire.newswire.controller;
 
 import com.newswire.newswire.entity.Article;
+import com.newswire.newswire.entity.Category;
 import com.newswire.newswire.service.ArticleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,12 @@ public class ArticleController {
     public ResponseEntity<Article> getById(@PathVariable Long id) {
         Optional<Article> article = articleService.findById(id);
         return article.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Article>> getByCategory(@PathVariable Category category) {
+        Optional<List<Article>> articles = articleService.findByCategory(category);
+        return articles.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping

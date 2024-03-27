@@ -1,6 +1,7 @@
 package com.newswire.newswire.service;
 
 import com.newswire.newswire.entity.Article;
+import com.newswire.newswire.entity.Category;
 import com.newswire.newswire.exception.InvalidArticleException;
 import com.newswire.newswire.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Optional<Article> findById(Long id) {
         return articleRepository.findById(id);
+    }
+
+    @Override
+    public Optional<List<Article>> findByCategory(Category category) {
+        return articleRepository.findByCategory(category);
     }
 
 
